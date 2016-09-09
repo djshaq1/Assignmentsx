@@ -1,11 +1,28 @@
+drop table if exists assignment;
 drop table if exists student_class;
 drop table if exists major_class;
 drop table if exists class;
 drop table if exists instructor;
-drop table if exists major;
-drop table if exists assignment;
 drop table if exists student;
+drop table if exists major;
 
+
+
+
+create table major(
+	id int primary key auto_increment,
+	name varchar(50) not null,
+	score int
+);
+
+
+insert into major (name,score) values('General Business',800);
+insert into major (name,score) values('Accounting',1000);
+insert into major (name,score) values('Finance',1100);
+insert into major (name,score) values('Math',1300);
+insert into major (name,score) values('Engineering',1350);
+insert into major (name,score) values('Education', 900);
+insert into major (name,score) values('General Studies',500);
 
 create table student(
 	id int primary key,
@@ -29,42 +46,28 @@ insert student values(180,'Frank','Fountain',3.8,1050,3);
 insert student values(190,'Brian','Biggs',4.0,1300,5);
 
 
-
-create table major(
-	id int primary key auto_increment,
-	name varchar(50) not null,
-	score int
-);
-insert into major (name,score) values('General Business',800);
-insert into major (name,score) values('Accounting',1000);
-insert into major (name,score) values('Finance',1100);
-insert into major (name,score) values('Math',1300);
-insert into major (name,score) values('Engineering',1350);
-insert into major (name,score) values('Education', 900);
-insert into major (name,score) values('General Studies',500);
-
 create table instructor (
 	id int primary key auto_increment,
 	first_name varchar(30) not null,
 	last_name varchar(30) not null,
 	years_of_experience int not null,
 	tenured tinyint not null,
-	major_id int,
-	foreign key (major_id)
+	majors_id int,
+	foreign key (majors_id)
 	  references major(id)
 );
 
 
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Margaret','Muse',10,1,1);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('James','Dean',25,1,2);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Dina','Fiasconaro',6,0,3);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Van','Exul',30,1,4);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Kanye','West',12,0,4);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Jay','Z',20,1,5);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Beyonce','Knowles',16,1,6);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Frank','Ocean',4,0,7);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Champagne','Champagne',40,1,1);
-INSERT into instructor (first_name,last_name,years_of_experience,tenured,major_id) values('Sean','Combs',25,1,2);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Margaret','Muse',10,1,1);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('James','Dean',25,1,2);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Dina','Fiasconaro',6,0,3);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Van','Exul',30,1,4);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Kanye','West',12,0,4);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Jay','Z',20,1,5);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Beyonce','Knowles',16,1,6);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Frank','Ocean',4,0,7);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Champagne','Champagne',40,1,1);
+INSERT into instructor (first_name,last_name,years_of_experience,tenured,majors_id) values('Sean','Combs',25,1,2);
 
 
 
@@ -120,10 +123,10 @@ create table assignment(
 	assignment_nbr int not null,
 	grade varchar(30), 
 	index student_id_idx (student_id), 
-	class_id int,
+	class_ids int,
 	foreign key (student_id) 
 		references student(id),
-	foreign key (class_id) 
+	foreign key (class_ids) 
 		references class(id)
 );
 
@@ -134,11 +137,10 @@ create table major_class(
 	id int primary key auto_increment,
 	major_id int not null,
 	class_id int not null,
-	assignment_id int not null,
 	foreign key (major_id)
 	  references major(id),
 	foreign key (class_id)
-	  references class(id),
+	  references class(id)
 	
 );
 
