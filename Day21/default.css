@@ -1,0 +1,26 @@
+.orangetext{
+	color:orange;
+}
+.italictext {
+	font-style:italic;
+}
+.boldtext{
+	font-style:bold;
+}
+span{
+	color:red;
+	font-weight:bold;
+}
+table{
+	border:1px solid black;
+}
+div {
+	width:49%;
+	display: inline-block;
+	text-align: left;
+	vertical-align: text-top;
+}
+/* This is how you comment */
+#rightdiv {
+	color:black;
+}
