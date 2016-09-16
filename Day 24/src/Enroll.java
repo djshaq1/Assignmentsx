@@ -13,17 +13,20 @@ public static void main(String[] args) throws SQLException {
 	//display();
 	//fetchData();
 	//insert();
-	fetchData();
+	//fetchData();
+	registration();
 	
 }
 public static void display() throws SQLException{
 	while(myRs.next()){
 		String fName= myRs.getString("first_name");
 		String lName= myRs.getString("last_name");
-		String majorDescript= myRs.getString("description");
+	String majorDescript= myRs.getString("description");
 		int reqSat= myRs.getInt("req_sat");
 		double GPA=myRs.getDouble("gpa");
 		int SAT= myRs.getInt("sat");
+		String Subject = myRs.getString("subject");
+		int section = myRs.getInt("section");
 		System.out.println("Education System - Enrollment Process");
 		System.out.println("======================================");
 		System.out.println();
@@ -31,6 +34,7 @@ public static void display() throws SQLException{
 		System.out.println(fName + " "+ lName + " has an SAT score of " + SAT);
 		System.out.println("Assigned "+ fName + " "+ lName + " to the " + majorDescript+ " major which requires a SAT score of " +reqSat );
 		System.out.println("Enrolled "+ fName + " "+ lName+ " in the following four classes:");
+		System.out.println(Subject + " "+ section+ " required for major"); 
 		System.out.println();
 }
 }
@@ -50,8 +54,8 @@ myStmt.setInt(1,899);
 	            if(myRs.getInt("req_sat") < myRs.getInt("sat")){
 		               System.out.println("Sorry, you must choose another major " );
 	          }else{
-	                display();
-	              }
+	               display();
+         }
 		}
 	
 }catch(Exception ex){
@@ -61,6 +65,37 @@ myStmt.setInt(1,899);
 	close();
 }
 }
+private static void registration() throws SQLException{
+	try{
+		makeConnection();	
+myStmt= myConn.prepareStatement("select major.description, major.req_sat, table2.* from major join ("
+		+ "select table1.*, class.subject,class.section from ("
+		+ "select student.*,student_class_relationship.class_id from student join "
+		+ "student_class_relationship on student.id = student_class_relationship.student_id) as table1"
+		+ " join class on table1.class_id=class.id where table1.id > ?) as table2 "
+		+ "on major.id=table2.major_id");
+		
+		
+		myStmt.setInt(1,1);
+			//Execute the Query
+			
+			myRs= myStmt.executeQuery();
+			
+			//Process my ResultSet
+			
+			            
+			                display();System.out.println("Friday is over");
+			              
+				
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			
+			close();
+		}
+		}
+
 private static void makeConnection() throws FileNotFoundException, IOException, SQLException{
 	Properties prop= new Properties();
 	prop.load(new FileInputStream("jdb.properties"));
