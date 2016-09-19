@@ -1,0 +1,7 @@
+select table1.*, c.subject from (
+select sc.class_id, from student s join 
+student_class_relationship sc  on s.id = sc.student_id) as table1  join class c on c.id = sc.class_id where table1.id >?
+
+
+
+ select major.description, major.req_sat, table2.* from major join (select table1.*, class.subject,class.section from (select student.*,student_class_relationship.class_id from student join student_class_relationship on student.id = student_class_relationship.student_id) as table1 join class on table1.class_id=class.id where table1.id > ?) as table2 on major.id=table2.major_id
