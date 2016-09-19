@@ -13,6 +13,7 @@ public static void main(String[] args) throws SQLException {
 	//display();
 	//fetchData();
 	//insert();
+	//insert2();
 	//fetchData();
 	registration();
 	
@@ -35,6 +36,9 @@ public static void display() throws SQLException{
 		System.out.println("Assigned "+ fName + " "+ lName + " to the " + majorDescript+ " major which requires a SAT score of " +reqSat );
 		System.out.println("Enrolled "+ fName + " "+ lName+ " in the following four classes:");
 		System.out.println(Subject + " "+ section+ " required for major"); 
+		System.out.println(Subject + " "+ section+ " required for major"); 
+		System.out.println(Subject + " "+ section ); 
+		System.out.println(Subject + " "+ section); 
 		System.out.println();
 }
 }
@@ -76,19 +80,25 @@ myStmt= myConn.prepareStatement("select major.description, major.req_sat, table2
 		+ "on major.id=table2.major_id");
 		
 		
-		myStmt.setInt(1,1);
+		myStmt.setInt(1,899);
 			//Execute the Query
 			
 			myRs= myStmt.executeQuery();
 			
 			//Process my ResultSet
-			
-			            
-			                display();System.out.println("Friday is over");
+			while(myRs.next()){
+			 if(myRs.getInt("req_sat") < myRs.getInt("sat")){
+	               System.out.println("Sorry, you must choose another major " );
+	               
+			 }else{
+				 display();
+			 }
+	
+			                
 			              
 				
 			
-		}catch(Exception ex){
+			}}catch(Exception ex){
 			ex.printStackTrace();
 		}finally{
 			
@@ -115,27 +125,32 @@ private static void insert() throws SQLException{
 	myStmt.setInt(4, 1200);
 	myStmt.setDouble(5, 3.0);
 	myStmt.setInt(6, 3);
+	myStmt.executeUpdate();
 	myStmt.setInt(1, 991);
 	myStmt.setString(2, "Graham");
 	myStmt.setString(3, "Krakir");
 	myStmt.setInt(4, 500);
 	myStmt.setDouble(5, 2.5);
 	myStmt.setInt(6, 7);
+	myStmt.executeUpdate();
 	myStmt.setInt(1, 992);
 	myStmt.setString(2, "Ella");
 	myStmt.setString(3, "Vader");
 	myStmt.setInt(4, 800);
 	myStmt.setDouble(5, 3.0);
-	myStmt.setInt(6, 2);
+	myStmt.setInt(6, 7);
+	myStmt.executeUpdate();
 	myStmt.setInt(1, 993);
 	myStmt.setString(2, "Stanley");
 	myStmt.setString(3, "Kupp");
 	myStmt.setInt(4, 1350 );
 	myStmt.setDouble(5, 3.5);
 	myStmt.setInt(6, 5);
+	myStmt.executeUpdate();
 	myStmt.setInt(1, 994);
 	myStmt.setString(2, "Lou");
 	myStmt.setString(3, "Zar");
+	myStmt.executeUpdate();
 	myStmt.setInt(4, 950 );
 	myStmt.setDouble(5, 3.0);
 	myStmt.setInt(6, 6);
@@ -148,9 +163,44 @@ private static void insert() throws SQLException{
 	}
 }
 
-public static void update() throws SQLException{
+private static void insert2() throws SQLException{
+	myStmt= myConn.prepareStatement("INSERT student_class_relationship (student_id, class_id) values (?,?)");
+	myStmt.setInt(1, 990);
+	myStmt.setInt(2, 10101);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 990);
+	myStmt.setInt(2, 10102);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 991);
+	myStmt.setInt(2, 10101);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 991);
+	myStmt.setInt(2, 10102);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 992);
+	myStmt.setInt(2, 10101);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 992);
+	myStmt.setInt(2, 10102);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 993);
+	myStmt.setInt(2, 10101);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 993);
+	myStmt.setInt(2, 10102);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 994);
+	myStmt.setInt(2, 10101);
+	myStmt.executeUpdate();
+	myStmt.setInt(1, 994);
+	myStmt.setInt(2, 10102);
+	myStmt.executeUpdate();
 	
 }
+
+
+
+
 
 public static void close() throws SQLException{
 	if(myConn!=null)
