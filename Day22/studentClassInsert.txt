@@ -1,0 +1,40 @@
+ Insert into student_class_relationship(student_id, class_id)
+ values (990, 10101);
+ Insert into student_class_relationship(student_id, class_id)
+ values (990, 10102);
+ Insert into student_class_relationship(student_id, class_id)
+ values (990, 20201);
+ Insert into student_class_relationship(student_id, class_id)
+ values (990, 20202);
+Insert into student_class_relationship(student_id, class_id)
+ values (991, 10101);
+ Insert into student_class_relationship(student_id, class_id)
+ values (991, 10102);
+Insert into student_class_relationship(student_id, class_id)
+ values (991, 20201);
+ Insert into student_class_relationship(student_id, class_id)
+ values (991, 20202);
+Insert into student_class_relationship(student_id, class_id)
+ values (992, 10101);
+ Insert into student_class_relationship(student_id, class_id)
+ values (992, 10102);
+Insert into student_class_relationship(student_id, class_id)
+ values (992, 20201);
+ Insert into student_class_relationship(student_id, class_id)
+ values (992, 20202);
+Insert into student_class_relationship(student_id, class_id)
+ values (993, 10101);
+ Insert into student_class_relationship(student_id, class_id)
+ values (993, 10102);
+Insert into student_class_relationship(student_id, class_id)
+ values (993, 20201);
+ Insert into student_class_relationship(student_id, class_id)
+ values (993, 20202);
+Insert into student_class_relationship(student_id, class_id)
+ values (994, 10101);
+ Insert into student_class_relationship(student_id, class_id)
+ values (994, 10102);
+Insert into student_class_relationship(student_id, class_id)
+ values (994, 20201);
+ Insert into student_class_relationship(student_id, class_id)
+ values (994, 20202);
