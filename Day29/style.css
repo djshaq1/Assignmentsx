@@ -1,5 +1,5 @@
-body{height:100%;
-   width:100%;
+body{height:75%;
+   width:75%;
    background-image:url(pics/cream.jpg);/*your background image*/
    background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
    background-size:cover;/*this sets the image to fullscreen covering the whole screen*/
@@ -32,6 +32,25 @@ div {
 	display: inline-block;
 	text-align: left;
 	vertical-align: text-top;
+}
+div2 {
+	width:49%;
+	display: inline-block;
+	text-align: left;
+	vertical-align: text-top;
+  border: 5px solid white;
+  padding: 25px;
+  margin: 25px;
+  font-style: italic;
+
+}
+p {
+  width: 300px;
+  border: 25px solid white;
+  padding: 25px;
+  margin: 25px;
+
+
 }
 /* This is how you comment */
 #rightdiv {

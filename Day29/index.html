@@ -7,25 +7,17 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
     <script src="./main.js"></script>
     <link rel = "stylesheet" type="text/css" href="style.css">
+    <script src="./GetSlackToken.js"></script>
   </head>
 
-
-    <div>  <h1>Channels</h1>
-
-<form action="">
-  <input type="radio" name="channels" value="12week-team-c"> #12week-team-c<br>
-  <input type="radio" name="channels" value="slackbots"> #slackbots<br>
-  <input type="radio" name="channels" value="general"> #general<br>
-</form>
-</div>
-  <div>  <h1>Post Message</h1>
-    <input id="desc" type="text" placeholder="New Description">
-    <button id = "post">Post</button>
+<body>
+    <div id="channels">
+        <h1>Channels</h1>
+        <!--<list id="channelsList">-->
     </div>
-
-
-
-
-
-  </body>
+    <div>  <h1>Post Message</h1>
+      <p><input id="desc" type="text" placeholder="New Description"></p>
+      <h2><button id = "post">Post</button></h2>
+    </div>
+</body>
 </html>
