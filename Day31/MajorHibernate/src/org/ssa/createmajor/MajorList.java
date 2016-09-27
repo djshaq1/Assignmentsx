@@ -23,7 +23,7 @@ public class MajorList {
 		display(major);
 		System.out.println("Records printed out");
 		
-		List<Major>major1=session.createQuery("from Major m where m.name='Sports Management'").list();
+		List<Major>major1=session.createQuery("from Major m where m.description='Sports Management'").list();
 		System.out.println("Single Record");
 		display(major1);
 		

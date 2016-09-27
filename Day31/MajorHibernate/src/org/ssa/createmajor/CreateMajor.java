@@ -21,7 +21,7 @@ public class CreateMajor {
 		Major maj2= new Major("Graphic Design", 1000);
 		Major maj3= new Major("African American Studies", 950);
 		Major maj4= new Major("Sports Management", 850);
-		Major maj= new Major("Software Devellopment", 1600);
+		Major maj= new Major("Software Development", 1600);
 		//begin transaction
 		session.beginTransaction();
 		

@@ -27,7 +27,7 @@ public class UpdateMajor {
 		
 	//	session.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		session.createQuery("update Major set score=1200 where id=9 ").executeUpdate();
+		session.createQuery("update Major set req_sat=1200 where id=9 ").executeUpdate();
 		System.out.println("Update Record");
 		
 		
