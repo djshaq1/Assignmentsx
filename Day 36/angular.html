@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="AppMod">
+<head>
+  <meta charset="UTF-8">
+  <title>Day 36</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="angstyle.css">
+
+<script src="index.js" type="text/javascript"></script>
+</head>
+<body ng-controller="AppCtrl as ctrl">
+
+  <input type="button" value="Refresh Page" onClick="window.location.reload()">
+
+  <table >
+    <td>ID</td>
+      <td>First Name</td>
+        <td>Last Name</td>
+          <td>GPA</td>
+            <td>SAT</td>
+              <td>Major ID</td>
+              <td>Hide</td>
+              <td>Show</td>
+
+
+<tr ng-repeat="student in ctrl.students as student">
+
+    <td ng-hide="showme"> {{student.id}}  </td>
+
+    <td ng-hide="showme"> {{student.firstname}}  </td>
+    <td ng-hide="showme">{{student.lastname}}</td>
+    <td ng-hide="showme"> {{student.gpa}}  </td>
+    <td ng-hide="showme">{{student.sat}}</td>
+    <td ng-hide="showme"> {{student.majorid}}  </td>
+    ​<td><button ng-click="showme=true">Hide</button></td>
+    <td><button ng-click="showme=false">Show</button></td>
+</tr>
+</tr1>
+</table>
+
+</body>
+</html>

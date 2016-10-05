@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="AppMod">
+<head>
+  <meta charset="UTF-8">
+  <title>Horizontal Student</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js" type="text/javascript"></script>
+<script src="index.js" ></script>
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+<body ng-controller="AppCtrl as ctrl">
+    <form name= "myForm" class="form-horizontal">
+
+
+      <h1>Student<h1>
+    <div class="form-group" ng-class="{ 'has-error' : myForm.first_name.$invalid && !myForm.first_name.$pristine }">
+      <label for="first_name" class="col-sm-2 control-label">First name</label>
+      <div class="col-sm-10">
+      <input type="text" name="first_name" ng-model="first_name" class="form-control first_name" id="first_name" placeholder="Shaquil"  ng-minlength="4" />
+
+        <span ng-show="myForm.first_name.$error.required">This field is required.</span>
+        <span ng-show="myForm.first_name.$error.minlength">Minimum length is 3.</span>
+        <span ng-show="myForm.first_name.$error.$invalid">This field is invalid.</span>
+
+ </div>
+</form>
+      </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : myForm.Lastname.$invalid && !myForm.Lastname.$pristine }">
+      <label for="Lastname" class="col-sm-2 control-label">Last name</label>
+      <div class="col-sm-10">
+        <input type="text" name="Lastname" ng-model="Lastname" class="form-control" id="Lastname" placeholder="Timmons"  ng-minlength="4">
+
+        <span ng-show="myForm.Lastname.$error.required">This field is required.</span>
+        <span ng-show="myForm.Lastname.$error.minlength">Minimum length is 4.</span>
+        <span ng-show="myForm.Lastname.$error.$invalid">This field is invalid.</span>
+
+      </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : myForm.gpa.$invalid && !myForm.gpa.$pristine }">
+      <label for="GPA" class="col-sm-2 control-label">GPA</label>
+      <div class="col-sm-10">
+        <input type="number" name="gpa" ng-model="gpa"class="form-control" id="GPA" placeholder="4.0" ng-minlength="2" ng-maxlength="4" ng-invalid="text">
+
+        <span ng-show="myForm.gpa.$error.required">This field is required.</span>
+        <span ng-show="myForm.gpa.$error.minlength">Minimum length is 2.</span>
+          <span ng-show="myForm.gpa.$error.maxlength">Too many numbers.</span>
+        <span ng-show="myForm.gpa.$error.$invalid">This field is invalid.</span>
+
+      </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : myForm.SAT.$invalid && !myForm.SAT.$pristine }">
+      <label for="SAT" class="col-sm-2 control-label">SAT</label>
+      <div class="col-sm-10">
+        <input type="number" name="SAT" ng-model="SAT"class="form-control" id="SAT" placeholder="1600" ng-maxlength="4" ng-invalid="text">
+
+        <span ng-show="myForm.SAT.$error.required">This field is required.</span>
+        <span ng-show="myForm.SAT.$error.minlength">Minimum length is 2.</span>
+          <span ng-show="myForm.SAT.$error.maxlength">Maximum length is 4.</span>
+        <span ng-show="myForm.SAT.$error.$invalid">This field is invalid.</span>
+
+      </div>
+    </div>
+  </form>
+
+
+</body>
+</html>
