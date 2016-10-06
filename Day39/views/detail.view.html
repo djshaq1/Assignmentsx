@@ -1,0 +1,26 @@
+<div>
+<h1>Student Detail</h1>
+<p>Student detail page for student with id {{ctrl.id}}</p>
+<table class="table">
+	<tr>
+		<td>Id:</td>
+		<td ng-bind="ctrl.student.studentId"></td>
+	</tr>
+	<tr>
+		<td>First name:</td>
+		<td ng-bind="ctrl.student.firstName"></td>
+	</tr>
+	<tr>
+		<td>Last name:</td>
+		<td ng-bind="ctrl.student.lastName"></td>
+	</tr>
+	<tr>
+		<td>SAT:</td>
+		<td ng-bind="ctrl.student.satRecord"></td>
+	</tr>
+	<tr>
+		<td>GPA:</td>
+		<td ng-bind="ctrl.student.gpa"></td>
+	</tr>
+</table>
+</div>
